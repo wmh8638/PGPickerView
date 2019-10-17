@@ -221,7 +221,7 @@
         CGFloat upLinePosY = kHeight / 2 - rowHeight / 2 - upLineHeight;
         UIView *upLine = [[UIView alloc]initWithFrame:CGRectMake(10 + space * i, upLinePosY, lineWidth, upLineHeight)];
         upLine.backgroundColor = [self upLineBackgroundColorForComponent:i];
-        [self addSubview:upLine];
+//        [self addSubview:upLine];
         [upLines addObject:upLine];
         
         CGFloat downLineHeight = [self downLineHeightForComponent:i];
@@ -229,8 +229,11 @@
         CGFloat downLinePosY = CGRectGetMaxY(upLine.frame) + rowHeight;
         UIView *downLine = [[UIView alloc]initWithFrame:CGRectMake(10 + space * i, downLinePosY, lineWidth, downLineHeight)];
         downLine.backgroundColor = [self downLineBackgroundColorForComponent:i];
-        [self addSubview:downLine];
+//        [self addSubview:downLine];
         [downLines addObject:downLine];
+        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(upLine.frame), [UIScreen mainScreen].bounds.size.width, rowHeight)];
+        backView.backgroundColor = self.lineBackgroundColor;
+        [self addSubview:backView];
     }
     self.upLines = upLines;
     self.downLines = downLines;
